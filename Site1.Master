@@ -4,16 +4,57 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>Cửa hàng mini DEMO</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="bg-light">
     <form id="form1" runat="server">
-        <div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="Default.aspx">Cửa hàng mini</a>
+
+                <div class="d-flex gap-2">
+                    <a href="DemoCookie.aspx" class="btn btn-sm text-white fw-semibold" style="background-color: #f97316;">Cookie</a>
+
+                    <a href="DemoSession_Login.aspx" class="btn btn-sm btn-primary fw-semibold">Session</a>
+                    <a href="DemoViewState.aspx" class="btn btn-sm btn-success fw-semibold">ViewState</a>
+                    <a href="Reset.aspx" class="btn btn-sm btn-dager fw-semibold">Reset</a>
+                </div>
+            </div>
+        </nav>
+        <!--Thanh X Quang-->
+        <div style="background-color: #1e293b; color: #f8fafc; font-family: Consolas, monospace; font-size: 13px;" class="py-2 border-bottom border-secondary">
+            <div class="container d-flex flex-wrap gap-3 align-items-center">
+                <span class="fw-bold text-uppercase text-white">X-QUANG:</span>
+                <span>SessionID:
+            <asp:Label ID="lblXRaySession" runat="server" ForeColor="#38bdf8" /></span>
+                <span>|</span>
+                <span>Cookies
+            <asp:Label ID="lblXRayCookies" runat="server" ForeColor="#fb923c" /></span>
+                <span>|</span>
+                <span>ViewState:<span id="xray-viewstate" style="color: #4ade80;">0 chars</span></span>
+            </div>
+        </div>
+        <!--Nội dung trang con-->
+        <div class="container my-4">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
     </form>
 </body>
+<script>
+(function () {
+    var vs = document.getElementById('__VIEWSTATE');
+    var val = vs ? (vs.getAttribute('value') || '') : '';
+    var len = val.length;
+    var el = document.getElementById('xray-viewstate');
+    if (el) {
+        el.innerText = len + ' chars (~' + (len / 1024).toFixed(2) + ' KB)';
+    }
+})();
+</script>
 </html>

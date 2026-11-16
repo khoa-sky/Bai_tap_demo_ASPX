@@ -11,7 +11,14 @@ namespace Bai_tap_demo_ASPX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            foreach (string key in Request.Cookies.AllKeys)
+            {
+                Response.Cookies[key].Expires = DateTime.Now.AddDays(-1);
+            }
+            Session.Clear();
+            Session.Abandon();
 
+            Response.Redirect("Default.aspx");
         }
     }
 }

@@ -13,5 +13,16 @@ namespace Bai_tap_demo_ASPX
         {
 
         }
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            lblXRaySession.Text = Session.SessionID;
+
+            var cookieNames = new System.Collections.Generic.List<string>();
+            foreach (string key in Request.Cookies.AllKeys)
+            {
+                cookieNames.Add(key + "=" + Request.Cookies[key].Value);
+            }
+            lblXRayCookies.Text = cookieNames.Count > 0 ? string.Join("; ", cookieNames) : "(trống)";
+        }
     }
 }
