@@ -9,9 +9,18 @@
 
 namespace Bai_tap_demo_ASPX
 {
-
-
     public partial class DemoViewState
     {
+        protected global::System.Web.UI.WebControls.Label lblNormalVar;
+        protected global::System.Web.UI.WebControls.Label lblViewStateVar;
+        protected global::System.Web.UI.WebControls.Button btnIncrement;
+        protected global::System.Web.UI.WebControls.Label lblA;
+        protected global::System.Web.UI.WebControls.Label lblB;
+        protected global::System.Web.UI.WebControls.Button btnSetText;
+        protected global::System.Web.UI.WebControls.Button btnPostbackTest;
+        protected global::System.Web.UI.WebControls.Label lblGridStatus;
+        protected global::System.Web.UI.WebControls.Button btnLoad100;
+        protected global::System.Web.UI.WebControls.Button btnDisableGridViewState;
+        protected global::System.Web.UI.WebControls.GridView gvProducts;
     }
 }

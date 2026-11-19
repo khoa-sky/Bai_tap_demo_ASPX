@@ -1,119 +1,189 @@
 ﻿<%@ Page Title="Demo Cookie" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="DemoCookie.aspx.cs" Inherits="Bai_tap_demo_ASPX.DemoCookie" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-        html:has(#pnlCookie[data-bs-theme="dark"]) body {
-            background-color: #212529 !important;
-            color: #dee2e6;
+        #pnlCookie {
+            font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            border-radius: 16px;
+            padding: 28px;
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
-        body > form .container {
-            max-width: min(1320px, 94vw);
+        #pnlCookie[data-bs-theme="light"] {
+            background-color: #F8FAFC;
+            color: #0F172A;
+            border: 1px solid #E2E8F0;
+        }
+        #pnlCookie[data-bs-theme="dark"] {
+            background-color: #0B1120;
+            color: #F1F5F9;
+            border: 1px solid #1E293B;
+        }
+        #pnlCookie[data-bs-theme="dark"] .cookie-panel {
+            background-color: #1E293B !important;
+            border-color: #334155 !important;
+            color: #F1F5F9;
+        }
+        #pnlCookie[data-bs-theme="dark"] .text-secondary {
+            color: #94A3B8 !important;
+        }
+        #pnlCookie[data-bs-theme="dark"] .form-control {
+            background-color: #0F172A;
+            border-color: #334155;
+            color: #F1F5F9;
+        }
+        #pnlCookie[data-bs-theme="dark"] .table {
+            color: #F1F5F9;
+            --bs-table-bg: transparent;
+            --bs-table-border-color: #334155;
+        }
+        .theme-icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+        }
+        .theme-icon-box img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+        #pnlCookie[data-bs-theme="light"] .icon-sun {
+            background-color: #FEF3C7;
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        #pnlCookie[data-bs-theme="light"] .icon-moon {
+            background-color: #F1F5F9;
+            opacity: 0.4;
+        }
+        #pnlCookie[data-bs-theme="dark"] .icon-sun {
+            background-color: #0F172A;
+            opacity: 0.35;
+        }
+        #pnlCookie[data-bs-theme="dark"] .icon-moon {
+            background-color: #312E81;
+            opacity: 1;
+            transform: scale(1.05);
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="pnlCookie" runat="server" clientidmode="Static" data-bs-theme="light" class="text-body">
-        <!-- Tiêu đề trang -->
-        <div class="mb-4">
-            <span class="badge rounded-pill mb-2" style="background-color: #ffedd5; color: #c2410c;">Cookie</span>
-            <h2 class="fw-bold mb-1">Demo Cookie &mdash; Lưu trên Trình duyệt</h2>
-            <p class="text-muted mb-0">Dữ liệu được lưu trữ trực tiếp trên trình duyệt Client và tự động gửi kèm lên Server ở mỗi lần tải trang.</p>
+    <div id="pnlCookie" runat="server" clientidmode="Static" data-bs-theme="light">
+        <!-- Tiêu đề gọn, ngôn ngữ tự nhiên -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+            <div>
+                <h2 class="fw-bold mb-1" style="letter-spacing: -0.02em;">Ghi nhớ khách hàng bằng Cookie</h2>
+                <p class="text-secondary small mb-0">Dữ liệu được lưu ngay trên trình duyệt của bạn và tự động gửi kèm lên Server.</p>
+            </div>
+            <span class="badge rounded-pill px-3 py-2 fw-medium" style="background-color: #EA580C; color: #FFFFFF;">Lưu tại Trình duyệt</span>
         </div>
 
-        <!-- Hàng 1: 2 Card chức năng chính -->
-        <div class="row g-4 mb-4">
-            <!-- Card trái: Lưu tên khách hàng -->
-            <div class="col-12 col-md-6">
-                <asp:Panel ID="pnlCustomerForm" runat="server" DefaultButton="btnSaveCookie" CssClass="card h-100 shadow-sm" style="border-top: 4px solid #f97316;">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold mb-1">1. Thông tin khách hàng</h5>
-                        <p class="small text-muted mb-3">So sánh Cookie phiên (không Expires) và Cookie lưu 7 ngày (có Expires)</p>
+        <!-- Bố cục 2 cột bất đối xứng: Form (7) + Sun/Moon Theme (5) -->
+        <div class="row g-3 mb-3">
+            <!-- Cột trái: Lưu tên khách hàng -->
+            <div class="col-12 col-lg-7">
+                <asp:Panel ID="pnlCustomerForm" runat="server" DefaultButton="btnSaveCookie" CssClass="card cookie-panel h-100 border rounded-4 shadow-sm bg-white">
+                    <div class="card-body p-4 d-flex flex-column justify-content-between gap-3">
+                        <div>
+                            <h5 class="fw-semibold mb-1">Tên khách hàng</h5>
+                            <p class="small text-secondary mb-3">Thử lưu có và không chọn ghi nhớ để đối chiếu sau khi đóng hẳn trình duyệt.</p>
 
-                        <div class="mb-3">
-                            <label for="txtName" class="form-label fw-medium">Tên của bạn</label>
-                            <asp:TextBox ID="txtName" runat="server" ClientIDMode="Static" CssClass="form-control" placeholder="Ví dụ: SinhVienA" MaxLength="50" />
+                            <div class="mb-3">
+                                <label for="txtName" class="form-label small fw-medium mb-1">Tên hiển thị</label>
+                                <asp:TextBox ID="txtName" runat="server" ClientIDMode="Static" CssClass="form-control py-2 rounded-3" placeholder="Nhập tên của bạn (ví dụ: Minh)" MaxLength="50" />
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" id="chkRemember" runat="server" clientidmode="Static" class="form-check-input" />
+                                <label for="chkRemember" class="form-check-label small" style="cursor: pointer;">Ghi nhớ tôi trong 7 ngày (gán Expires)</label>
+                            </div>
                         </div>
 
-                        <div class="form-check mb-3">
-                            <input type="checkbox" id="chkRemember" runat="server" clientidmode="Static" class="form-check-input" />
-                            <label for="chkRemember" class="form-check-label" style="cursor: pointer;">Ghi nhớ tôi (7 ngày - có Expires)</label>
+                        <div>
+                            <asp:Button ID="btnSaveCookie" runat="server" Text="Lưu Cookie"
+                                CssClass="btn w-100 py-2 rounded-3 fw-semibold text-white"
+                                style="background-color: #EA580C; border-color: #EA580C;"
+                                OnClick="btnSaveCookie_Click" />
+
+                            <asp:Panel ID="pnlGreeting" runat="server" Visible="false" CssClass="alert alert-success small py-2 px-3 mt-3 mb-0 rounded-3">
+                                <asp:Label ID="lblGreeting" runat="server" />
+                            </asp:Panel>
                         </div>
-
-                        <asp:Button ID="btnSaveCookie" runat="server" Text="Lưu Cookie"
-                            CssClass="btn w-100 fw-semibold mb-3"
-                            style="background-color: #f97316; border-color: #f97316; color: #ffffff;"
-                            OnClick="btnSaveCookie_Click" />
-
-                        <asp:Panel ID="pnlGreeting" runat="server" Visible="false" CssClass="alert alert-success mb-0">
-                            <asp:Label ID="lblGreeting" runat="server" />
-                        </asp:Panel>
                     </div>
                 </asp:Panel>
             </div>
 
-            <!-- Card phải: Đổi Theme lưu trong Cookie -->
-            <div class="col-12 col-md-6">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold mb-1">2. Giao diện (Theme Cookie)</h5>
-                        <p class="small text-muted mb-3">Lưu tùy chọn Sáng / Tối vào Cookie với thời hạn 7 ngày</p>
+            <!-- Cột phải: Sun & Moon Theme Switcher -->
+            <div class="col-12 col-lg-5">
+                <div class="card cookie-panel h-100 border rounded-4 shadow-sm bg-white">
+                    <div class="card-body p-4 d-flex flex-column justify-content-between gap-3">
+                        <div>
+                            <h5 class="fw-semibold mb-1">Giao diện Sáng / Tối</h5>
+                            <p class="small text-secondary mb-3">Lưu lựa chọn vào cookie <code>theme</code> (7 ngày).</p>
 
-                        <div class="btn-group w-100 mb-3" role="group" aria-label="Chọn giao diện Sáng hoặc Tối">
-                            <asp:Button ID="btnLight" runat="server" Text="Chế độ Sáng (Light)"
-                                CssClass="btn btn-primary w-50 fw-semibold"
-                                OnClick="btnLight_Click" />
-                            <asp:Button ID="btnDark" runat="server" Text="Chế độ Tối (Dark)"
-                                CssClass="btn btn-outline-secondary w-50 fw-semibold"
-                                OnClick="btnDark_Click" />
+                            <!-- Trực quan Sun / Moon -->
+                            <div class="d-flex justify-content-center align-items-center gap-3 py-2 mb-3">
+                                <div class="theme-icon-box icon-sun">
+                                    <img src="images/sun.png" alt="Chế độ Sáng" />
+                                </div>
+                                <span class="text-secondary small fw-medium">hoặc</span>
+                                <div class="theme-icon-box icon-moon">
+                                    <img src="images/moon.png" alt="Chế độ Tối" />
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mb-2">
+                                <asp:Button ID="btnLight" runat="server" Text="Sáng (Light)"
+                                    CssClass="btn btn-dark flex-fill rounded-3 py-2 fw-semibold"
+                                    OnClick="btnLight_Click" />
+                                <asp:Button ID="btnDark" runat="server" Text="Tối (Dark)"
+                                    CssClass="btn btn-outline-dark flex-fill rounded-3 py-2 fw-semibold"
+                                    OnClick="btnDark_Click" />
+                            </div>
                         </div>
 
-                        <div class="small text-muted">
-                            Giao diện đang áp dụng:
-                            <asp:Label ID="lblThemeStatus" runat="server" CssClass="fw-semibold" Text="Sáng (Light - mặc định)" />
+                        <div class="small text-secondary pt-2 border-top">
+                            Đang dùng: <asp:Label ID="lblThemeStatus" runat="server" CssClass="fw-semibold" Text="Sáng (Light)" />
                         </div>
-                    </div>
-                    <div class="card-footer small text-muted">
-                        Mẹo: Sau khi thử lưu không tích &ldquo;Ghi nhớ tôi&rdquo;, hãy <strong>đóng hẳn toàn bộ cửa sổ trình duyệt</strong> rồi mở lại để kiểm chứng.
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Hàng 2: Bảng tổng quan Cookie hiện tại -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold mb-1">Trạng thái Cookie hiện tại (<code>Request.Cookies</code>)</h5>
-                        <p class="small text-muted mb-3">Dữ liệu thực tế mà trình duyệt đang gửi lên trang Demo Cookie</p>
-
-                        <div class="table-responsive">
-                            <table class="table table-bordered align-middle mb-3">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 22%;">Tên Cookie</th>
-                                        <th style="width: 28%;">Giá trị hiện tại</th>
-                                        <th>Trạng thái / Thời hạn</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><code>username</code></td>
-                                        <td><asp:Label ID="lblCookieUserVal" runat="server" Text="(trống)" /></td>
-                                        <td class="small text-muted"><asp:Label ID="lblCookieUserNote" runat="server" Text="Chưa lưu" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>theme</code></td>
-                                        <td><asp:Label ID="lblCookieThemeVal" runat="server" Text="(chưa lưu)" /></td>
-                                        <td class="small text-muted"><asp:Label ID="lblCookieThemeNote" runat="server" Text="Đang dùng mặc định: light" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="small text-muted">
-                            Kiểm tra chi tiết hạn <code>Expires</code>: nhấn <strong>F12</strong> &rarr; tab <strong>Application</strong> &rarr; <strong>Cookies</strong> &rarr; chọn địa chỉ <code>localhost</code>.
-                        </div>
-                    </div>
+        <!-- Bảng trạng thái Cookie hiện tại -->
+        <div class="card cookie-panel border rounded-4 shadow-sm bg-white">
+            <div class="card-body p-3 px-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-semibold mb-0">Cookie trình duyệt đang gửi lên (<code>Request.Cookies</code>)</h6>
+                    <span class="small text-secondary">Đóng hẳn trình duyệt để kiểm chứng Expires</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-sm align-middle mb-0">
+                        <thead>
+                            <tr class="small text-secondary">
+                                <th style="width: 18%;">Tên Cookie</th>
+                                <th style="width: 26%;">Giá trị</th>
+                                <th>Trạng thái / Thời hạn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>username</code></td>
+                                <td><asp:Label ID="lblCookieUserVal" runat="server" Text="(trống)" /></td>
+                                <td class="small text-secondary"><asp:Label ID="lblCookieUserNote" runat="server" Text="Chưa lưu" /></td>
+                            </tr>
+                            <tr>
+                                <td><code>theme</code></td>
+                                <td><asp:Label ID="lblCookieThemeVal" runat="server" Text="(chưa lưu)" /></td>
+                                <td class="small text-secondary"><asp:Label ID="lblCookieThemeNote" runat="server" Text="Chưa chọn riêng" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

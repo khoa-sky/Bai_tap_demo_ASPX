@@ -30,15 +30,15 @@
         </nav>
         <!--Thanh X Quang-->
         <div style="background-color: #1e293b; color: #f8fafc; font-family: Consolas, monospace; font-size: 13px;" class="py-2 border-bottom border-secondary">
-            <div class="container d-flex flex-wrap gap-3 align-items-center">
-                <span class="fw-bold text-uppercase text-white">X-QUANG:</span>
-                <span>SessionID:
-            <asp:Label ID="lblXRaySession" runat="server" ForeColor="#38bdf8" /></span>
+            <div class="container d-flex align-items-center gap-3 flex-nowrap overflow-hidden">
+                <span class="fw-bold text-uppercase text-white text-nowrap">X-QUANG:</span>
+                <span class="text-nowrap">SessionID:
+                    <asp:Label ID="lblXRaySession" runat="server" ForeColor="#38bdf8" /></span>
                 <span>|</span>
-                <span>Cookies
-            <asp:Label ID="lblXRayCookies" runat="server" ForeColor="#fb923c" /></span>
+                <span class="text-truncate">Cookies:
+                    <asp:Label ID="lblXRayCookies" runat="server" ForeColor="#fb923c" /></span>
                 <span>|</span>
-                <span>ViewState:<span id="xray-viewstate" style="color: #4ade80;">0 chars</span></span>
+                <span class="text-nowrap">ViewState: <span id="xray-viewstate" style="color: #4ade80;">0 chars</span></span>
             </div>
         </div>
         <!--Nội dung trang con-->
