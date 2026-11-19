@@ -39,29 +39,29 @@ namespace Bai_tap_demo_ASPX
             cart.Add(productName);
             Session["Cart"] = cart;
 
-            lblMessage.Text = "✅ Đã thêm \"" + productName + "\" vào giỏ hàng!";
+            lblMessage.Text = " Đã thêm \"" + productName + "\" vào giỏ hàng!";
             lblMessage.Visible = true;
             UpdateCartButton();
         }
 
         protected void btnAdd1_Click(object sender, EventArgs e)
         {
-            AddToCart("Áo thun ASP.NET");
+            AddToCart("Áo Thun Cổ Tròn IceVibes Phom Rộng");
         }
 
         protected void btnAdd2_Click(object sender, EventArgs e)
         {
-            AddToCart("Cốc sứ WebForms");
+            AddToCart("Áo Thun Cổ Henley CloudTouch Phom Rộng");
         }
 
         protected void btnAdd3_Click(object sender, EventArgs e)
         {
-            AddToCart("Sổ tay Dev");
+            AddToCart("Áo Polo Pique Kẻ Sọc Phom Rộng");
         }
 
         protected void btnAdd4_Click(object sender, EventArgs e)
         {
-            AddToCart("Móc khóa C#");
+            AddToCart("Thắt Lưng Nam Bản Nhỏ Da Bò Thật");
         }
 
         protected void btnViewCart_Click(object sender, EventArgs e)

@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cửa hàng mini DEMO</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
@@ -13,17 +13,18 @@
 </head>
 <body class="bg-light">
     <form id="form1" runat="server">
-         
+
         <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="Default.aspx">Cửa hàng mini</a>
-
+                <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="Default.aspx">
+                    <img src="images/logo.jpg" height="50" alt="Mini Store" />
+                    Mini Store
+                </a>
                 <div class="d-flex gap-2">
-                    <a href="DemoCookie.aspx" class="btn btn-sm text-white fw-semibold" style="background-color: #f97316;">Cookie</a>
-
-                    <a href="DemoSession_Login.aspx" class="btn btn-sm btn-primary fw-semibold">Session</a>
-                    <a href="DemoViewState.aspx" class="btn btn-sm btn-success fw-semibold">ViewState</a>
-                    <a href="Reset.aspx" class="btn btn-sm btn-danger fw-semibold">Reset</a>
+                    <a href="DemoCookie.aspx" class="btn btn-sm btn-outline-warning rounded-pill px-3 fw-semibold">Cookie</a>
+                    <a href="DemoSession_Login.aspx" class="btn btn-sm btn-outline-primary rounded-pill px-3 fw-semibold">Session</a>
+                    <a href="DemoViewState.aspx" class="btn btn-sm btn-outline-success rounded-pill px-3 fw-semibold">ViewState</a>
+                    <a href="Reset.aspx" class="btn btn-sm btn-outline-danger rounded-pill px-3 fw-semibold">Reset</a>
                 </div>
             </div>
         </nav>

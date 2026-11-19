@@ -88,8 +88,15 @@
     <Content Include="DemoSession_Login.aspx" />
     <Content Include="DemoSession_Products.aspx" />
     <Content Include="DemoViewState.aspx" />
+    <Content Include="images\ao_1.jpg" />
+    <Content Include="images\ao_2.jpg" />
+    <Content Include="images\ao_3.jpg" />
     <Content Include="images\cookie.jpg" />
+    <Content Include="images\Demo_Login_2.jpg" />
+    <Content Include="images\Demo_Session.jpg" />
+    <Content Include="images\logo.jpg" />
     <Content Include="images\session.jpg" />
+    <Content Include="images\thac_lung.jpg" />
     <Content Include="images\viewstate.png" />
     <Content Include="Reset.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
