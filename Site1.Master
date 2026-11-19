@@ -4,14 +4,16 @@
 
 <html>
 <head runat="server">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cửa hàng mini DEMO</title>
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css?v=533" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body class="bg-light">
     <form id="form1" runat="server">
-
+         
         <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
             <div class="container">
                 <a class="navbar-brand fw-bold" href="Default.aspx">Cửa hàng mini</a>
@@ -21,7 +23,7 @@
 
                     <a href="DemoSession_Login.aspx" class="btn btn-sm btn-primary fw-semibold">Session</a>
                     <a href="DemoViewState.aspx" class="btn btn-sm btn-success fw-semibold">ViewState</a>
-                    <a href="Reset.aspx" class="btn btn-sm btn-dager fw-semibold">Reset</a>
+                    <a href="Reset.aspx" class="btn btn-sm btn-danger fw-semibold">Reset</a>
                 </div>
             </div>
         </nav>
