@@ -13,5 +13,25 @@ namespace Bai_tap_demo_ASPX
 
     public partial class DemoSession_Login
     {
+
+        /// <summary>
+        /// txtUsername control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+
+        /// <summary>
+        /// txtPassword control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        /// <summary>
+        /// btnLogin control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnLogin;
+
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }
