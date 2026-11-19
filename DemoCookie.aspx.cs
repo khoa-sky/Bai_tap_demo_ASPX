@@ -102,17 +102,15 @@ namespace Bai_tap_demo_ASPX
             bool isDark = string.Equals(theme, "dark", StringComparison.OrdinalIgnoreCase);
 
             pnlCookie.Attributes["data-bs-theme"] = isDark ? "dark" : "light";
-            pnlCookie.Attributes["class"] = isDark
-                ? "color-scheme-dark fg-body"
-                : "color-scheme-light fg-body";
+            pnlCookie.Attributes["class"] = "text-body";
 
             btnLight.CssClass = isDark
-                ? "btn btn-outline theme-secondary flex-fill fw-semibold"
-                : "btn btn-solid theme-primary flex-fill fw-semibold";
+                ? "btn btn-outline-secondary w-50 fw-semibold"
+                : "btn btn-primary w-50 fw-semibold";
 
             btnDark.CssClass = isDark
-                ? "btn btn-solid theme-primary flex-fill fw-semibold"
-                : "btn btn-outline theme-secondary flex-fill fw-semibold";
+                ? "btn btn-primary w-50 fw-semibold"
+                : "btn btn-outline-secondary w-50 fw-semibold";
 
             lblThemeStatus.Text = isDark ? "Tối (Dark - lưu 7 ngày)" : "Sáng (Light)";
         }
@@ -139,7 +137,7 @@ namespace Bai_tap_demo_ASPX
             else
             {
                 lblCookieUserVal.Text = "(trống)";
-                lblCookieUserVal.CssClass = "fg-3";
+                lblCookieUserVal.CssClass = "text-muted";
                 lblCookieUserNote.Text = "Chưa lưu hoặc đã bị xóa khi đóng trình duyệt / bấm Reset";
             }
 
@@ -153,7 +151,7 @@ namespace Bai_tap_demo_ASPX
             else
             {
                 lblCookieThemeVal.Text = "(chưa lưu)";
-                lblCookieThemeVal.CssClass = "fg-3";
+                lblCookieThemeVal.CssClass = "text-muted";
                 lblCookieThemeNote.Text = "Chưa chọn riêng — đang dùng mặc định: light";
             }
         }
@@ -162,8 +160,8 @@ namespace Bai_tap_demo_ASPX
         {
             pnlGreeting.Visible = true;
             pnlGreeting.CssClass = isWarning
-                ? "alert theme-warning mb-0"
-                : "alert theme-success mb-0";
+                ? "alert alert-warning mb-0"
+                : "alert alert-success mb-0";
             lblGreeting.Text = htmlMessage;
         }
     }
