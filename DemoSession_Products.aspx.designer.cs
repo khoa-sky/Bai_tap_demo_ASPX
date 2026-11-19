@@ -13,5 +13,45 @@ namespace Bai_tap_demo_ASPX
 
     public partial class DemoSession_Products
     {
+
+        /// <summary>
+        /// lblUser control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblUser;
+
+        /// <summary>
+        /// btnViewCart control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnViewCart;
+
+        /// <summary>
+        /// btnLogout control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnLogout;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+
+        /// <summary>
+        /// btnAdd1 control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnAdd1;
+
+        /// <summary>
+        /// btnAdd2 control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnAdd2;
+
+        /// <summary>
+        /// btnAdd3 control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnAdd3;
+
+        /// <summary>
+        /// btnAdd4 control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnAdd4;
     }
 }
