@@ -91,11 +91,15 @@
     <Content Include="images\ao_1.jpg" />
     <Content Include="images\ao_2.jpg" />
     <Content Include="images\ao_3.jpg" />
+    <Content Include="images\bin.png" />
     <Content Include="images\cookie.jpg" />
     <Content Include="images\Demo_Login_2.jpg" />
     <Content Include="images\Demo_Session.jpg" />
     <Content Include="images\logo.jpg" />
+    <Content Include="images\logout_icon.png" />
     <Content Include="images\session.jpg" />
+    <Content Include="images\shopping-bag.png" />
+    <Content Include="images\store_icon.png" />
     <Content Include="images\thac_lung.jpg" />
     <Content Include="images\viewstate.png" />
     <Content Include="Reset.aspx" />
