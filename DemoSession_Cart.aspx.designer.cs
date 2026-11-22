@@ -9,49 +9,17 @@
 
 namespace Bai_tap_demo_ASPX
 {
-
-
     public partial class DemoSession_Cart
     {
-
-        /// <summary>
-        /// lblCartUser control.
-        /// </summary>
         protected global::System.Web.UI.WebControls.Label lblCartUser;
-
-        /// <summary>
-        /// btnBackToProducts control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Button btnBackToProducts;
-
-        /// <summary>
-        /// btnLogoutCart control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Button btnLogoutCart;
-
-        /// <summary>
-        /// pnlEmpty control.
-        /// </summary>
+        protected global::System.Web.UI.WebControls.LinkButton btnBackToProducts;
+        protected global::System.Web.UI.WebControls.LinkButton btnLogoutCart;
         protected global::System.Web.UI.WebControls.Panel pnlEmpty;
-
-        /// <summary>
-        /// pnlCart control.
-        /// </summary>
         protected global::System.Web.UI.WebControls.Panel pnlCart;
-
-        /// <summary>
-        /// litCartRows control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Literal litCartRows;
-
-        /// <summary>
-        /// lblTotal control.
-        /// </summary>
         protected global::System.Web.UI.WebControls.Label lblTotal;
-
-        /// <summary>
-        /// btnClearCart control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Button btnClearCart;
+        protected global::System.Web.UI.WebControls.Literal litCartRows;
+        protected global::System.Web.UI.WebControls.Label lblSummaryCount;
+        protected global::System.Web.UI.WebControls.Label lblTotalPrice;
+        protected global::System.Web.UI.WebControls.LinkButton btnClearCart;
     }
 }
